@@ -4,9 +4,7 @@ var Rovers = function(name, direction, x, y) {
 	this.direction = direction;
 	this.x = x;
 	this.y = y;
-	this.travelLog = [
-		`(${x}, ${y})`
-	];
+	this.travelLog = [ `(${x}, ${y})` ];
 };
 
 //Main rover object
@@ -25,6 +23,7 @@ function createGrid() {
 }
 createGrid();
 
+// ======================
 // ROVER MOVEMENT
 function turnLeft(rover) {
 	switch (rover.direction) {
@@ -57,6 +56,7 @@ function turnRight(rover) {
 			rover.direction = 'N';
 	}
 }
+
 function moveForward(rover) {
 	var newX = rover.x;
 	var newY = rover.y;
@@ -75,6 +75,7 @@ function moveForward(rover) {
 	}
 	setNewPosition(rover, newX, newY);
 }
+
 function moveBackwards(rover) {
 	var newX = rover.x;
 	var newY = rover.y;
@@ -137,7 +138,6 @@ function setNewPosition(rover, newX, newY) {
 }
 
 // ======================
-
 // OBSTACLES
 var allObstacles = [];
 var Obstacle = function(id, x, y) {
@@ -179,20 +179,15 @@ function createRandRovers(num) {
 
 var numRovers = 2;
 createRandRovers(numRovers); //create fixed number of rovers
-// ======================
 
+//Randomizing rovers
 function randomCoordinate() {
 	return Math.floor(Math.random() * 10) + 1;
 }
 
 function getRandomdir() {
 	var randomDir, directions;
-	directions = [
-		'N',
-		'S',
-		'E',
-		'W'
-	];
+	directions = [ 'N', 'S', 'E', 'W' ];
 	randomDir = directions[Math.floor(Math.random() * directions.length)];
 	return randomDir;
 }
